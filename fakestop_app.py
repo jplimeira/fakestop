@@ -105,7 +105,7 @@ if aba == "🔍 Analisar nova notícia":
 
                 # Define a tarefa do verificador
                 tarefa_verificacao = Task(
-                    description="Analisar as fontes coletadas pelo agente coletor, verificando a veracidade das informações.",
+                    description="Analisar as fontes coletadas pelo agente coletor, verificando se é verídica a notícia: {noticia} informada.",
                     expected_output='''Relatório de verificação de fatos, com análise da veracidade das informações 
                     e confiabilidade das fontes.''',
                     agent=agente_verificador,
