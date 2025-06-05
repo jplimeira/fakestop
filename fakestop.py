@@ -70,7 +70,7 @@ agente_linguistico = Agent(
     verbose=True,
     memory=True,
     llm=llm,
-    backstory='Você é um agente linguístico experiente, que melhora a qualidade textual'
+    backstory='Você é um agente linguístico experiente, que avalia a qualidade textual'
 )
 
 # Define a tarefa do agente linguístico
