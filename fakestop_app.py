@@ -95,7 +95,8 @@ if aba == "🔍 Analisar nova notícia":
                 agente_verificador = Agent(
                     role='Verificador de fatos',
                     goal='''Você é um verificador de fatos e precisa analisar as fontes coletadas pelo agente 
-                    coletor, verificando a veracidade das informações e a confiabilidade das fontes.''',
+                    coletor, verificando a veracidade das informações e a confiabilidade das fontes, levar em consideração o status
+                    da notícia no google fact check, se é verdadeira ou falsa.''',
                     verbose=True,
                     memory=True,
                     llm=llm,
@@ -105,7 +106,8 @@ if aba == "🔍 Analisar nova notícia":
 
                 # Define a tarefa do verificador
                 tarefa_verificacao = Task(
-                    description="Analisar as fontes coletadas pelo agente coletor, verificando se é verídica a notícia: {noticia} informada.",
+                    description='''Analisar as fontes coletadas pelo agente coletor, verificando a veracidade das informações no google fact check, levando em consideração
+                    o status da notícia que consta no site, se é verdadeira ou falsa .''',
                     expected_output='''Relatório de verificação de fatos, com análise da veracidade das informações 
                     e confiabilidade das fontes.''',
                     agent=agente_verificador,
@@ -150,7 +152,7 @@ if aba == "🔍 Analisar nova notícia":
                     com justificativa da classificação.
                     Dê uma resposta clara e objetiva,
                     evitando jargões técnicos e explicando o raciocínio por trás da classificação.
-                    Leve em consideração as regras heurísticas simples que vou te passar agora: 
+                    Leve em consideração as análises dos agentes coletor, linguistico e verificador e as regras heurísticas simples que vou te passar agora: 
                     se não encontra correspondência e texto alarmista = FALSO🤥
                     se  encontra fonte confiável + texto neutro=VERDADEIRO✅
                     e se encontrar apenas fontes não confiáveis ou não encontrar fontes = DUVIDOSO🫤,
